@@ -1,20 +1,14 @@
-package com.example.planner
+package com.example.planner.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.planner.*
 import com.example.planner.databinding.ActivityMainBinding
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.lang.reflect.Type
+import com.example.planner.model.TaskItem
+import com.example.planner.model.TaskItemClickListener
 
 class MainActivity : AppCompatActivity(), TaskItemClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -29,6 +23,7 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener {
 
 
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -98,7 +93,7 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener {
             val selectd = choices[i]
             if (selectd.equals("Edit")) {
 
-                NewTask(taskItem).show(supportFragmentManager, "newTaskTag")
+                NewTask(taskItem).show(supportFragmentManager, "newTask")
                 dialogInterface.dismiss()
             } else {
                 tasks.deleteOnClick(taskItem)

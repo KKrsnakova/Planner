@@ -1,14 +1,14 @@
-package com.example.planner
+package com.example.planner.model
 
 import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.planner.R
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
-import java.util.UUID
 
 @Entity(tableName = "table_task")
  class TaskItem(
@@ -24,7 +24,7 @@ import java.util.UUID
     fun completedDate(): LocalDate? = if (completedDateString == null) null
     else LocalDate.parse(completedDateString, dateFormat)
 
-    fun dueTime(): LocalTime? = if (completedDateString == null) null
+    fun dueTime(): LocalTime? = if (dueTimeString == null) null
     else LocalTime.parse(dueTimeString, timeFormat)
 
     fun date(): LocalDate? = if (dateString == null) null

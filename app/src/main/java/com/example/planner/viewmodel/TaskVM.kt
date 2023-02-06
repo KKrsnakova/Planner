@@ -1,17 +1,14 @@
 package com.example.planner
 
 import androidx.lifecycle.*
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.example.planner.model.TaskItem
+import com.example.planner.model.TaskRepo
 import kotlinx.coroutines.launch
-import java.io.File
 import java.time.LocalDate
-import java.time.LocalTime
-import java.util.UUID
 
 class TaskVM(private val repo: TaskRepo) : ViewModel() {
 
-    private val data = Data()
+
     var taskItems: LiveData<List<TaskItem>> = repo.allTasks.asLiveData()
     var undoneTasks: LiveData<List<TaskItem>> = repo.undoneTasks.asLiveData()
 
@@ -37,6 +34,9 @@ class TaskVM(private val repo: TaskRepo) : ViewModel() {
     fun setCompleted(taskItem: TaskItem) = viewModelScope.launch {
         if (!taskItem.isCompleted()){
             taskItem.completedDateString = TaskItem.dateFormat.format(LocalDate.now())
+            repo.editTask(taskItem)
+        } else {
+            taskItem.completedDateString = null
             repo.editTask(taskItem)
         }
 

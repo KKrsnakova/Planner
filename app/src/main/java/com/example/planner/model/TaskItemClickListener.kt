@@ -1,4 +1,6 @@
-package com.example.planner
+package com.example.planner.model
+
+import com.example.planner.model.TaskItem
 
 interface TaskItemClickListener {
     fun editTaskItem(taskItem: TaskItem)

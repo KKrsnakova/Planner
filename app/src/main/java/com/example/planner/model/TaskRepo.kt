@@ -1,7 +1,8 @@
-package com.example.planner
+package com.example.planner.model
 
 import androidx.annotation.WorkerThread
-import androidx.room.Dao
+import com.example.planner.model.TaskDao
+import com.example.planner.model.TaskItem
 import kotlinx.coroutines.flow.Flow
 
 class TaskRepo(private val taskDao: TaskDao)  {

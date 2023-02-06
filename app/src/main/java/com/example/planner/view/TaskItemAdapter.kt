@@ -1,10 +1,11 @@
-package com.example.planner
+package com.example.planner.view
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.planner.model.TaskItemClickListener
 import com.example.planner.databinding.TaskItemCellBinding
+import com.example.planner.model.TaskItem
 
 class TaskItemAdapter(
     private val taskItems: List<TaskItem>,
@@ -19,7 +20,7 @@ class TaskItemAdapter(
     }
 
     override fun onBindViewHolder(holder: TaskItemViewHolder, position: Int) {
-        holder.bindTaskItem(taskItems[position])
+        holder.TaskItemForRV(taskItems[position])
     }
 
     override fun getItemCount(): Int {

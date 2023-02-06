@@ -1,9 +1,11 @@
-package com.example.planner
+package com.example.planner.view
 
 import android.content.Context
 import android.graphics.Paint
 import androidx.recyclerview.widget.RecyclerView
+import com.example.planner.model.TaskItemClickListener
 import com.example.planner.databinding.TaskItemCellBinding
+import com.example.planner.model.TaskItem
 import java.time.format.DateTimeFormatter
 
 class TaskItemViewHolder(
@@ -15,7 +17,7 @@ class TaskItemViewHolder(
     val timeFormat = DateTimeFormatter.ofPattern("HH:mm")
     val dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
-    fun bindTaskItem(taskItem: TaskItem) {
+    fun TaskItemForRV(taskItem: TaskItem) {
         binding.name.text = taskItem.name
 
         if (taskItem.isCompleted()) {
