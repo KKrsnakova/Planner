@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="place_holder">place_holder</string>
+    <string name="place_holder1">Place Holder</string>
+    <string name="checkbox">CheckBox</string>
+    <string name="date">date</string>
+</resources>
